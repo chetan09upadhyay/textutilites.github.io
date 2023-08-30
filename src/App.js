@@ -12,6 +12,8 @@ import {
   Switch,
   Route,
 
+  Link
+
 } from "react-router-dom";
 
 
@@ -36,58 +38,39 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark mode is enabled", "success");
-      document.title = "TextUtilies - Dark mode";
+      // document.title = "TextUtilies - Dark mode";
     }
     else {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode is enabled", "success");
-      document.title = "TextUtilies - light mode";
+      // document.title = "TextUtilies - light mode";
     }
   }
-
-  // return (
-  //   <>
-  //     <Router>
-  //       <Navbar title="Textutiles" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
-  //       <Alert alert={alert} />
-
-  //       <div className="container my-3">
-  //         <Switch>
-  //           <Route path="/">
-  //             <Textform showAlert={showAlert} heading="Enter the text to analize below" mode={mode} />
-  //           </Route>
-  //           <Route path="/about">
-  //             <About />
-  //           </Route>
-  //         </Switch>
-
-  //       </div>
-  //     </Router>
-  //   </>
-  // );
 
   return (
     <>
       <Router>
-      <Navbar title="Textutiles" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
+        <Navbar title="Textutiles" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
 
-        <div className="container my-3">
+      
+        <div className="container">
           <Switch>
-            <Route path="/"> 
-              <Textform showAlert={showAlert} heading="Enter the text to analize below" mode={mode} />
+            <Route exact path="/about">
+              <About mode={mode} />
             </Route>
-            <Route path="/about">
-              <About />
+            <Route exact path="/">
+              <Textform heading="Try Textutils - Word Counter, Character Counter, Remove extra spaces" mode={mode} showAlert={showAlert} />
             </Route>
-
           </Switch>
-
         </div>
       </Router>
     </>
   );
+
+
 }
 
 export default App;
+
