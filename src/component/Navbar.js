@@ -1,6 +1,7 @@
-import React from 'react'
-// import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+ import React from 'react'
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 export default function Navbar(props) {
   return (
@@ -17,16 +18,12 @@ export default function Navbar(props) {
               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/about">About</a>
-              {/* <Link className="nav-link" to="/about">{props.aboutText}</Link> */}
+              <Link className="nav-link" to="/about">{props.aboutText}</Link>
             </li> 
           </ul>
 
 
-          {/* <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>  */}
+          
           <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
             <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Darkmode</label>
